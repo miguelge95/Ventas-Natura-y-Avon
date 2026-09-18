@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Natura Miguel | Belleza y Bienestar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #F6F1E7;
+    --ink: #26241F;
+    --ink-soft: #55524A;
+    --deep: #33422C;
+    --deep-2: #3F5137;
+    --accent: #A24E5D;
+    --accent-soft: #C98A93;
+    --sand: #EADFC5;
+    --card: #FFFDF8;
+    --radius: 4px;
+    --maxw: 1100px;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:"Work Sans", sans-serif;
+    line-height:1.55;
+  }
+  img{ max-width:100%; display:block; }
+  a{ color:inherit; }
+
+  h1, h2, h3{
+    font-family:"Fraunces", serif;
+    font-weight:600;
+    margin:0;
+    color:var(--deep);
+  }
+
+  .wrap{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 24px;
+  }
+
+  /* Nav */
+  header.site{
+    position:sticky;
+    top:0;
+    z-index:50;
+    background:var(--deep);
+    color:#F6F1E7;
+  }
+  .nav-top{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:16px 24px;
+    max-width:var(--maxw);
+    margin:0 auto;
+    gap:16px;
+    flex-wrap:wrap;
+  }
+  .brand{
+    font-family:"Fraunces", serif;
+    font-size:1.3rem;
+    letter-spacing:0.01em;
+    color:#F6F1E7;
+  }
+  .brand span{ color:var(--accent-soft); }
+  .whatsapp-top{
+    font-size:0.9rem;
+    color:#F6F1E7;
+    text-decoration:none;
+    border:1px solid rgba(246,241,231,0.4);
+    padding:8px 14px;
+    border-radius:999px;
+    white-space:nowrap;
+  }
+  .whatsapp-top:hover{ border-color:#F6F1E7; }
+
+  nav.cats{
+    background:var(--deep-2);
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+    border-top:1px solid rgba(246,241,231,0.12);
+  }
+  nav.cats ul{
+    list-style:none;
+    display:flex;
+    gap:6px;
+    margin:0 auto;
+    padding:10px 24px;
+    max-width:var(--maxw);
+    white-space:nowrap;
+  }
+  nav.cats a{
+    text-decoration:none;
+    color:#EFE9DB;
+    font-size:0.88rem;
+    padding:6px 14px;
+    border-radius:999px;
+  }
+  nav.cats a:hover{ background:rgba(246,241,231,0.12); }
+
+  /* Hero */
+  .hero{
+    padding:64px 24px 56px;
+    max-width:var(--maxw);
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:1.2fr 0.8fr;
+    gap:40px;
+    align-items:center;
+  }
+  .hero h1{
+    font-size:clamp(2.1rem, 4vw, 3rem);
+    line-height:1.15;
+    max-width:16ch;
+  }
+  .hero p.lead{
+    margin-top:18px;
+    font-size:1.05rem;
+    color:var(--ink-soft);
+    max-width:46ch;
+  }
+  .hero .cta-row{
+    margin-top:28px;
+    display:flex;
+    gap:14px;
+    flex-wrap:wrap;
+  }
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-family:"Work Sans", sans-serif;
+    font-size:0.95rem;
+    font-weight:500;
+    text-decoration:none;
+    padding:12px 22px;
+    border-radius:999px;
+    border:1px solid transparent;
+  }
+  .btn-primary{
+    background:var(--accent);
+    color:#FFFDF8;
+  }
+  .btn-primary:hover{ background:#8E4150; }
+  .btn-ghost{
+    border-color:var(--deep);
+    color:var(--deep);
+  }
+  .btn-ghost:hover{ background:var(--deep); color:#F6F1E7; }
+
+  .hero-art{
+    aspect-ratio:4/5;
+    border-radius:var(--radius);
+    overflow:hidden;
+    background:var(--sand);
+  }
+  .hero-art img{ width:100%; height:100%; object-fit:cover; }
+
+  /* About strip */
+  .about{
+    background:var(--sand);
+    padding:36px 24px;
+  }
+  .about .wrap{
+    display:flex;
+    gap:32px;
+    flex-wrap:wrap;
+    align-items:flex-start;
+  }
+  .about h2{
+    font-size:1.3rem;
+    flex:0 0 220px;
+  }
+  .about p{
+    flex:1 1 320px;
+    color:var(--ink-soft);
+    margin:0;
+    max-width:60ch;
+  }
+
+  /* Sections */
+  section.cat{
+    padding:56px 24px 8px;
+    max-width:var(--maxw);
+    margin:0 auto;
+    scroll-margin-top:110px;
+  }
+  section.cat h2{
+    font-size:1.6rem;
+    border-bottom:1px solid #DDD3BC;
+    padding-bottom:14px;
+    margin-bottom:28px;
+  }
+
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(220px, 1fr));
+    gap:22px;
+    padding-bottom:48px;
+  }
+  .card{
+    background:var(--card);
+    border-radius:var(--radius);
+    overflow:hidden;
+    border:1px solid #E9E1CF;
+    display:flex;
+    flex-direction:column;
+  }
+  .card .thumb{
+    aspect-ratio:1/1;
+    background:var(--sand);
+    overflow:hidden;
+  }
+  .card .thumb img{ width:100%; height:100%; object-fit:cover; }
+  .card .body{
+    padding:16px 16px 18px;
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+    flex:1;
+  }
+  .card h3{
+    font-size:1.02rem;
+    line-height:1.3;
+  }
+  .card p{
+    font-size:0.88rem;
+    color:var(--ink-soft);
+    margin:0;
+    flex:1;
+  }
+  .card .order{
+    margin-top:6px;
+    font-size:0.82rem;
+    font-weight:500;
+    text-decoration:none;
+    color:var(--accent);
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+  }
+  .card .order:hover{ color:#8E4150; }
+
+  /* Footer */
+  footer.site{
+    background:var(--deep);
+    color:#EFE9DB;
+    padding:40px 24px;
+    margin-top:24px;
+  }
+  footer.site .wrap{
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:16px;
+    align-items:center;
+  }
+  footer.site p{ margin:0; font-size:0.85rem; color:#C9C2AE; }
+  footer.site a{ text-decoration:none; color:#EFE9DB; }
+
+  /* Floating WhatsApp button */
+  .wa-float{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    width:56px;
+    height:56px;
+    border-radius:50%;
+    background:var(--accent);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow:0 6px 18px rgba(0,0,0,0.25);
+    z-index:60;
+  }
+  .wa-float:hover{ background:#8E4150; }
+  .wa-float svg{ width:26px; height:26px; }
+
+  @media (max-width: 760px){
+    .hero{ grid-template-columns:1fr; padding-top:40px; }
+    .hero-art{ order:-1; aspect-ratio:16/10; }
+    .about .wrap{ flex-direction:column; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="nav-top">
+    <div class="brand">Natura <span>Miguel</span></div>
+    <a class="whatsapp-top" href="https://wa.me/525547909105" target="_blank" rel="noopener">WhatsApp: 55-47-90-91-05</a>
+  </div>
+  <nav class="cats">
+    <ul>
+      <li><a href="#kits">Kits</a></li>
+      <li><a href="#perfumes">Perfumes</a></li>
+      <li><a href="#desodorantes">Desodorantes</a></li>
+      <li><a href="#cremas">Cremas</a></li>
+      <li><a href="#manos">Manos</a></li>
+      <li><a href="#jabones">Jabones</a></li>
+      <li><a href="#shampoo">Shampoo</a></li>
+      <li><a href="#labiales">Labiales</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="hero">
+  <div>
+    <h1>Cuidado natural para tu piel y tu cabello</h1>
+    <p class="lead">Perfumes, cremas y productos de cuidado capilar Avon y Natura. Pide directo por WhatsApp y recibe atención personalizada para elegir lo que mejor te va.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="https://wa.me/525547909105" target="_blank" rel="noopener">Escríbenos por WhatsApp</a>
+      <a class="btn btn-ghost" href="#kits">Ver catálogo</a>
+    </div>
+  </div>
+  <div class="hero-art">
+    <img src="kit.jpeg" alt="Kit de perfume, crema y desodorante">
+  </div>
+</section>
+
+<div class="about">
+  <div class="wrap">
+    <h2>Sobre el catálogo</h2>
+    <p>Aquí encuentras una selección de productos Avon y Natura organizada por categoría: kits, perfumes, desodorantes, cremas, jabones, shampoo y labiales. Toca "Pedir por WhatsApp" en cualquier producto y te respondemos con precio y disponibilidad.</p>
+  </div>
+</div>
+
+<section class="cat" id="kits">
+  <h2>Kits</h2>
+  <div class="grid">
+
+    <div class="card">
+      <div class="thumb"><img src="kit.jpeg" alt="Kit Imari Naturelle"></div>
+      <div class="body">
+        <h3>Kit Imari Naturelle</h3>
+        <p>Disfruta de una piel suave e hidratada, con una fragancia de larga duración.</p>
+        <a class="order" href="https://wa.me/525547909105?text=Hola%2C%20me%20interesa%20el%20Kit%20Imari%20Naturelle" target="_blank" rel="noopener">Pedir por WhatsApp →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="thumb"><img src="kit2.jpeg" alt="Kit attitude adventure"></div>
+      <div class="body">
+        <h3>Kit Attitude Adventure</h3>
+        <p>Fragancia en spray con familia aromática efervescente frutal: piña colada, flores tropicales y crema batida.</p>
+        <a class="order" href="https://wa.me/525547909105?text=Hola%2C%20me%20interesa%20el%20Kit%20Attitude%20Adventure" target="_blank" rel="noopener">Pedir por WhatsApp →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="thumb"><img src="kit3.jpeg" alt="Kit attitude festival"></div>
+      <div class="body">
+        <h3>Kit Attitude Festival</h3>
+        <p>Fragancia floral-frutal vibrante y juvenil: mandarina, limón y magnolia, con toques de ciruela y fondo cremoso.</p>
+        <a class="order" href="https://wa.me/525547909105?text=Hola%2C%20me%20interesa%20el%20Kit%20Attitude%20Festival" target="_blank" rel="noopener">Pedir por WhatsApp →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="thumb"><img src="kit4.jpeg" alt="Kit Shampoo y Acondicionador"></div>
+      <div class="body">
+        <h3>Kit Shampoo y Acondicionador</h3>
+        <p>Natura Lumina Anticaída y Crecimiento: fortalece desde la raíz, con resultados visibles desde la primera aplicación.</p>
+        <a class="order" href="https://wa.me/525547909105?text=Hola%2C%20me%20interesa%20el%20Kit%20Shampoo%20y%20Acondicionador" target="_blank" rel="noopener">Pedir por WhatsApp →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="thumb"><img src="solar.jpeg" alt="Care Sun+ FPS50"></div>
+      <div class="body">
+        <h3>Care Sun+ FPS50</h3>
+        <p>Hidratación con protección UVA/UVB.</p>
+        <a class="order" href="https://wa.me/525547909105?text=Hola%2C%20me%20interesa%20el%20Care%20Sun%2B%20FPS50" target="_blank" rel="noopener">Pedir por WhatsApp →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="thumb"><img src="aceite.jpeg" alt="+Oleo Tratamiento Hidratante"></div>
+      <div class="body">
+        <h3>+Óleo Tratamiento Hidratante</h3>
+        <p>Cabello con aspecto saludable e hidratado.</p>
+        <a class="order" href="https://wa.me/525547909105?text=Hola%2C%20me%20interesa%20el%20%2BOleo%20Tratamiento%20Hidratante" target="_blank" rel="noopener">Pedir por WhatsApp →</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="cat" id="perfumes">
+  <h2>Perfumes</h2>
+  <div class="grid">
+
+    <div class="card">
+      <div class="thumb"><img src="humordama.jpeg" alt="Perfume Humor"></div>
+      <div class="body">
+        <h3>Perfume Humor</h3>
+        <p>Notas cítricas y un vibrante cóctel de frutas.</p>
+        <a class="order" href="https://wa.me/525547909105?text=Hola%2C%20me%20interesa%20el%20Perfume%20Humor" target="_blank" rel="noopener">Pedir por WhatsApp →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="thumb"><img src="Natura - Humor 2 - Dama.jpeg" alt="Perfume Kaiak"></div>
+      <div class="body">
+        <h3>Perfume Kaiak</h3>
+        <p>Familia olfativa aromática.</p>
+        <a class="order" href="https://wa.me/525547909105?text=Hola%2C%20me%20interesa%20el%20Perfume%20Kaiak" target="_blank" rel="noopener">Pedir por WhatsApp →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="thumb"><img src="Pitanga.jpeg" alt="Perfume Pitanga"></div>
+      <div class="body">
+        <h3>Perfume Pitanga</h3>
+        <p>Tropicalidad brasileña y alma de biodiversidad.</p>
+        <a class="order" href="https://wa.me/525547909105?text=Hola%2C%20me%20interesa%20el%20Perfume%20Pitanga" target="_blank" rel="noopener">Pedir por WhatsApp →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="thumb"><img src="secret.jpeg" alt="Colonia Secret Fantasy Truth"></div>
+      <div class="body">
+        <h3>Colonia Secret Fantasy Truth</h3>
+        <p>Familia aromática floral frutal musk.</p>
+        <a class="order" href="https://wa.me/525547909105?text=Hola%2C%20me%20interesa%20la%20Colonia%20Secret%20Fantasy%20Truth" target="_blank" rel="noopener">Pedir por WhatsApp →</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="cat" id="desodorantes">
+  <h2>Desodorantes</h2>
+  <div class="grid">
+
+    <div class="card">
+      <div class="thumb"><img src="desodorante1.png" alt="Desodorante Limón y Guanábana"></div>
+      <div class="body">
+        <h3>Roll On "Limón y Guanábana"</h3>
+        <p>Alta protección por hasta 72 horas.</p>
+        <a class="order" href="https://wa.me/525547909105?text=Hola%2C%20me%20interesa%20el%20Desodorante%20Lim%C3%B3n%20y%20Guan%C3%A1bana" target="_blank" rel="noopener">Pedir por WhatsApp →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="thumb"><img src="desodorante2.png" alt="Desodorante Leche de Algodón"></div>
+      <div class="body">
+        <h3>Roll On "Leche de Algodón"</h3>
+        <p>Alta protección por hasta 72 horas.</p>
+        <a class="order" href="https://wa.me/525547909105?text=Hola%2C%20me%20interesa%20el%20Desodorante%20Leche%20de%20Algod%C3%B3n" target="_blank" rel="noopener">Pedir por WhatsApp →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="thumb"><img src="desodorante3.png" alt="Desodorante Limón y Menta"></div>
+      <div class="body">
+        <h3>Roll On "Limón y Menta"</h3>
+        <p>Alta protección por hasta 72 horas.</p>
+        <a class="order" href="https://wa.me/525547909105?text=Hola%2C%20me%20interesa%20el%20Desodorante%20Lim%C3%B3n%20y%20Menta" target="_blank" rel="noopener">Pedir por WhatsApp →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="thumb"><img src="desodorante4.png" alt="Desodorante Sin perfume"></div>
+      <div class="body">
+        <h3>Roll On "Sin Perfume"</h3>
+        <p>Alta protección por hasta 72 horas.</p>
+        <a class="order" href="https://wa.me/525547909105?text=Hola%2C%20me%20interesa%20el%20Desodorante%20Sin%20Perfume" target="_blank" rel="noopener">Pedir por WhatsApp →</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="cat" id="cremas">
+  <h2>Cremas</h2>
+  <div class="grid">
+
+    <div class="card">
+      <div class="thumb"><img src="care.jpeg" alt="Crema Avon Frutos Rojos"></div>
+      <div class="body">
+        <h3>Crema Avon</h3>
+        <p>Hidratación radiante.</p>
+        <a class="order" href="https://wa.me/525547909105?text=Hola%2C%20me%20interesa%20la%20Crema%20Avon" target="_blank" rel="noopener">Pedir por WhatsApp →</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="cat" id="manos">
+  <h2>Cremas para Manos</h2>
+  <div class="grid">
+
+    <div class="card">
+      <div class="thumb"><img src="cremamanos.png" alt="Crema de manos Castaña"></div>
+      <div class="body">
+        <h3>Crema de Manos "Castaña"</h3>
+        <p>Nutrición intensa e hidratación inmediata.</p>
+        <a class="order" href="https://wa.me/525547909105?text=Hola%2C%20me%20interesa%20la%20Crema%20de%20Manos%20Casta%C3%B1a" target="_blank" rel="noopener">Pedir por WhatsApp →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="thumb"><img src="ucuuba.jpeg" alt="Pulpa hidratante para manos ucuuba"></div>
+      <div class="body">
+        <h3>Pulpa Hidratante Ucuuba</h3>
+        <p>Retonifica y combate la flacidez de la piel de las manos.</p>
+        <a class="order" href="https://wa.me/525547909105?text=Hola%2C%20me%20interesa%20la%20Pulpa%20Hidratante%20Ucuuba" target="_blank" rel="noopener">Pedir por WhatsApp →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="thumb"><img src="care_manos.jpeg" alt="Crema de manos Avon"></div>
+      <div class="body">
+        <h3>Crema de Manos Avon</h3>
+        <p>Protección todo el día contra la resequedad.</p>
+        <a class="order" href="https://wa.me/525547909105?text=Hola%2C%20me%20interesa%20la%20Crema%20de%20Manos%20Avon" target="_blank" rel="noopener">Pedir por WhatsApp →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="thumb"><img src="maracuya.jpeg" alt="Crema de manos Maracuyá"></div>
+      <div class="body">
+        <h3>Crema de Manos "Maracuyá"</h3>
+        <p>Nutrición intensa e hidratación inmediata.</p>
+        <a class="order" href="https://wa.me/525547909105?text=Hola%2C%20me%20interesa%20la%20Crema%20de%20Manos%20Maracuy%C3%A1" target="_blank" rel="noopener">Pedir por WhatsApp →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="thumb"><img src="pitanga_crema.jpeg" alt="Crema de manos Pitanga"></div>
+      <div class="body">
+        <h3>Crema de Manos "Pitanga"</h3>
+        <p>Nutrición intensa e hidratación inmediata.</p>
+        <a class="order" href="https://wa.me/525547909105?text=Hola%2C%20me%20interesa%20la%20Crema%20de%20Manos%20Pitanga" target="_blank" rel="noopener">Pedir por WhatsApp →</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="cat" id="jabones">
+  <h2>Jabones</h2>
+  <div class="grid">
+
+    <div class="card">
+      <div class="thumb"><img src="jabonbarra.png" alt="Jabón de Avellana y Casis"></div>
+      <div class="body">
+        <h3>Jabón de Avellana y Casis</h3>
+        <p>Libre de grasa animal.</p>
+        <a class="order" href="https://wa.me/525547909105?text=Hola%2C%20me%20interesa%20el%20Jab%C3%B3n%20de%20Avellana%20y%20Casis" target="_blank" rel="noopener">Pedir por WhatsApp →</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="cat" id="shampoo">
+  <h2>Shampoo / Acondicionador</h2>
+  <div class="grid">
+
+    <div class="card">
+      <div class="thumb"><img src="acondicionador.jpeg" alt="Acondicionador"></div>
+      <div class="body">
+        <h3>Acondicionador</h3>
+        <p>Recupera el cabello del desgaste diario.</p>
+        <a class="order" href="https://wa.me/525547909105?text=Hola%2C%20me%20interesa%20el%20Acondicionador" target="_blank" rel="noopener">Pedir por WhatsApp →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="thumb"><img src="acondicionador2.png" alt="Acondicionador Flor de Cereza y Aguacate"></div>
+      <div class="body">
+        <h3>Acondicionador Flor de Cereza y Aguacate</h3>
+        <p>Versión sostenible y económica.</p>
+        <a class="order" href="https://wa.me/525547909105?text=Hola%2C%20me%20interesa%20el%20Acondicionador%20Flor%20de%20Cereza%20y%20Aguacate" target="_blank" rel="noopener">Pedir por WhatsApp →</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="cat" id="labiales">
+  <h2>Labiales y Máscaras</h2>
+  <div class="grid">
+
+    <div class="card">
+      <div class="thumb"><img src="labial.png" alt="Labial líquido"></div>
+      <div class="body">
+        <h3>Labial Líquido</h3>
+        <p>16 horas de duración.</p>
+        <a class="order" href="https://wa.me/525547909105?text=Hola%2C%20me%20interesa%20el%20Labial%20L%C3%ADquido" target="_blank" rel="noopener">Pedir por WhatsApp →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="thumb"><img src="labial2.png" alt="Labial Preciso"></div>
+      <div class="body">
+        <h3>Labial Preciso</h3>
+        <p>10 horas de duración.</p>
+        <a class="order" href="https://wa.me/525547909105?text=Hola%2C%20me%20interesa%20el%20Labial%20Preciso" target="_blank" rel="noopener">Pedir por WhatsApp →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="thumb"><img src="mascara.png" alt="Máscara Extravagant"></div>
+      <div class="body">
+        <h3>Extravagant</h3>
+        <p>Resistente al agua y de larga duración.</p>
+        <a class="order" href="https://wa.me/525547909105?text=Hola%2C%20me%20interesa%20la%20M%C3%A1scara%20Extravagant" target="_blank" rel="noopener">Pedir por WhatsApp →</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer class="site">
+  <div class="wrap">
+    <p>© 2026 Store's Mike — Si te interesa algún producto, escríbenos por WhatsApp:<br>
+      <a href="https://wa.me/525547909105">55-47-90-91-05</a> · <a href="https://wa.me/525563719238">55-63-71-92-38</a>
+    </p>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/525547909105" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp">
+  <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M16 2C8.28 2 2 8.28 2 16c0 2.6.72 5.03 1.97 7.11L2 30l7.1-1.93A13.9 13.9 0 0 0 16 30c7.72 0 14-6.28 14-14S23.72 2 16 2z" fill="#FFFDF8"/>
+    <path d="M23.4 19.6c-.35-.18-2.08-1.03-2.4-1.14-.32-.12-.56-.18-.8.18-.24.35-.92 1.14-1.13 1.38-.21.24-.42.26-.77.09-.35-.18-1.48-.55-2.82-1.75-1.04-.93-1.75-2.08-1.95-2.43-.2-.35-.02-.54.16-.71.16-.16.35-.42.53-.63.18-.21.24-.35.35-.59.12-.24.06-.44-.03-.62-.09-.18-.8-1.94-1.1-2.65-.29-.7-.58-.6-.8-.61h-.68c-.24 0-.62.09-.94.44-.32.35-1.24 1.21-1.24 2.95s1.27 3.42 1.45 3.66c.18.24 2.5 3.82 6.06 5.35.85.37 1.51.59 2.02.75.85.27 1.62.23 2.23.14.68-.1 2.08-.85 2.37-1.67.29-.82.29-1.53.2-1.67-.09-.15-.32-.24-.67-.41z" fill="#A24E5D"/>
+  </svg>
+</a>
+
+</body>
+</html>
